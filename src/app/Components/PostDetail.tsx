@@ -2,6 +2,7 @@
 import moment from 'moment';
 import React from 'react';
 import parse from 'html-react-parser';
+import extractHTML from '../Service/ExtractText';
 
 
 type Props={
@@ -11,7 +12,7 @@ type Props={
   excerpt:string
   featuredImage:{url:string}
   category:{name:string}[]
-  content:{html:string}
+  content:{json:object}
 }
 
 export default function PostDetail({category,createdAt,title,featuredImage,content}:Props) {
@@ -20,7 +21,7 @@ export default function PostDetail({category,createdAt,title,featuredImage,conte
     <>
     <div className="bg-white dark:bg-slate-950 text-black dark:text-white shadow-lg rounded-lg  md:pb-12 ">
        <h1 className='w-fit px-5 py-2 bg-red-700 rounded-xl text-center justify-center '>{cata}</h1>
-       <h1 className="text-3xl font-semibold border-b-2 border-slate-300 pb-2 ">{title}</h1>
+       <h1 className="md:text-3xl text-lg font-semibold border-b-2 border-slate-300 pb-2 ">{title}</h1>
        <div className="font-medium  flex w-full justify-between">
         <h1>{"ሳምንቱን በታሪክ"}</h1>
         <div className="font-medium  flex w-fit justify-end">
@@ -32,14 +33,14 @@ export default function PostDetail({category,createdAt,title,featuredImage,conte
             </div>
           </div>
       <div className="relative overflow-hidden shadow-md mb-6">
-        <img src={featuredImage.url} alt="" className="object-top h-full w-full object-cover  shadow-lg rounded-t-lg lg:rounded-lg" />
+        <img src={featuredImage.url} alt="" className="object-top h-auto w-full object-cover  shadow-lg rounded-t-lg lg:rounded-lg" />
       </div>
       <div className="px-4 lg:px-0">
         <div className="flex items-center mb-8 w-full">
           <div className="hidden md:flex items-center justify-center lg:mb-0 lg:w-auto mr-8 ">
           </div>
         </div>
-        {parse(content.html)}
+        {parse(extractHTML(content.json))}
         </div>
     </div>
 

@@ -8,7 +8,7 @@ export default function Page({ params }: { params: { slug: string } }) {
 
     return (
         <>
-        <div className=" md:mx-32  mb-8 bg-white dark:bg-slate-950">
+        <div className=" lg:mx-32 md:mx-5   mb-8 bg-white dark:bg-slate-950">
          <Details  slug={decodedSlug} />
         </div>
       </>

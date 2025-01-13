@@ -193,7 +193,7 @@ export const getPostDetails = async (slug:string) => {
     slug
     createdAt
     content {
-         html
+         json
     }
     category {
       name
@@ -240,34 +240,6 @@ export const getCategorypost = async (category:string) => {
     console.log(error); 
   }
 }
-// export const getSearch = async (value:string,last:number) => {
-//   const query = gql`
-//    query MyQuery {
-//   posts(where: {_search:"${value}"}, last: ${last}) {
-//     title
-//         excerpt
-//         slug
-//         featuredImage {
-//           url
-//         }
-//          category {
-//           name
-//           slug
-//         }
-//         createdAt
-//         slug
-//   }
-// }
-//   `
-//   try {
-//     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-//     const results:any=await request(graphqlAPI,query,{value,last})
-//     return results.posts;
-//   } catch (error) {
-//     console.log(error); 
-//   }
-// }
-
 
 export const getSearch = async (value: string, first: number, skip: number) => {
   const query = gql`

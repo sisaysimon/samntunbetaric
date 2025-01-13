@@ -18,23 +18,23 @@ export default function  NewsCard({post}){
   return (
     <div>
       <Link href={`/post/${post.slug}`} >
-    <div className="group relative overflow-hidden mb-5  mr-5 w-full h-[450px]   ">
+    <div className="group relative overflow-hidden mb-5  mr-5 w-full    ">
       {/* Image */}
       <img
         src={post.featuredImage.url}
         alt="Church"
-        className="w-full h-[450px] object-top  object-cover  shadow-lg  cursor-pointer 
+        className="w-full h-auto object-top  object-cover  shadow-lg  cursor-pointer 
          transform transition-transform duration-1000 ease-in-out group-hover:scale-105"
       />
     
       {/* Text content */}
-      <div className="absolute bottom-0  flex flex-col  p-4">
+      <div className="absolute bottom-0  flex flex-col p-2 gap-2">
         {/* Badge */}
         <span className="bg-red-600 text-white text-sm font-bold px-3 py-1 rounded-md self-start">
           {post.category[0].name}
         </span>
         {/* Headline */}
-        <p className="text-white text-lg font-semibold leading-relaxed w-full">
+        <p className="text-white text-sm bg-black/50 px-1 rounded-xl ">
           {post.excerpt}
         </p>
       </div>

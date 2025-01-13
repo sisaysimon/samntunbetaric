@@ -51,7 +51,7 @@ export default function Header() {
               </div>
         </div>
       </div>
-        <div className="flex justify-between md:justify-between h-20 items-center  md:mx-32 mx-3  border-b  border-blue-400">
+        <div className="flex justify-between md:justify-between h-20 items-center md:mx-5 lg:mx-32 mx-3  border-b  border-blue-400">
            <div className='md:hidden flex w-fit'  >
                 <MdMenu onClick={()=>setOpen(!open)} className='text-black dark:text-white h-10 w-10 cursor-pointer '  />
                 <div
@@ -71,7 +71,7 @@ export default function Header() {
       </div>
          </div>
           <Link href="/">
-           <Image src={logo}  alt='logo'  className='w-20 h-12  rounded-full object-center  object-cover   cursor-pointer ' />
+           <Image src={logo}  alt='logo'  className={`${openSearch?"hidden md:flex":"block"} w-20 h-12  rounded-full object-center  object-cover   cursor-pointer `} />
             {/* <span className="cursor-pointer font-bold text-4xl text-black dark:text-white">Graph CMS</span> */}
           </Link>
           <div className='flex justify-between items-center gap-5'>

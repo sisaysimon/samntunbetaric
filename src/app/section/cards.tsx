@@ -47,9 +47,9 @@ export default function  SectionCard({category}:props){
       />
     
       {/* Text content */}
-      <div className="absolute bottom-0  flex flex-col  p-4">
+      <div className="absolute bottom-0  flex flex-col  p-2">
         {/* Headline */}
-        <p className="text-white text-lg font-semibold leading-relaxed w-full">
+        <p className="text-white text-sm bg-black/50 px-1 rounded-xl ">
           {post.excerpt}
         </p>
       </div>
@@ -71,9 +71,9 @@ export default function  SectionCard({category}:props){
       />
     
       {/* Text content */}
-      <div className="absolute bottom-0  flex flex-col  p-4">
+      <div className="absolute bottom-0  flex flex-col  p-2">
         {/* Headline */}
-        <p className="text-white text-md  leading-relaxed  ">
+        <p className="text-white text-sm bg-black/50 px-1 rounded-xl  ">
           {post.excerpt.slice(0,80)}
         </p>
       </div>

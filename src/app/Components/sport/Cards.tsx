@@ -6,18 +6,18 @@ import Link from "next/link"
 export  function Vertical({post}) {
   return (
     <Link href={`/post/${post.slug}`}>
-    <div className="group relative overflow-hidden mb-5 w-full h-[500px]   ">
+    <div className="group relative overflow-hidden mb-5 w-full ">
     {/* Image */}
     <img
       src={post.featuredImage.url}
       alt="Church"
-      className="w-full h-full object-top  object-cover  shadow-lg  cursor-pointer 
+      className="w-full h-[400px] object-top  object-cover  shadow-lg  cursor-pointer 
        transform transition-transform duration-1000 ease-in-out group-hover:scale-105"
     />
   
     {/* Text content */}
   
-      <p className="text-white  absolute bottom-0  leading-relaxed w-full">
+      <p className="absolute bottom-0 text-white text-sm bg-black/50 mx-2 mb-2 rounded-xl ">
         {post.excerpt}
       </p>
   </div>
@@ -30,7 +30,7 @@ export  function Vertical({post}) {
 export  function Horizontal({post}) {
   return (
     <Link href={`/post/${post.slug}`}>
-    <div className="group relative overflow-hidden  w-full h-[245px]   ">
+    <div className="group relative overflow-hidden  w-full h-[195px]   ">
     {/* Image */}
     <img
       src={post.featuredImage.url}
@@ -41,7 +41,7 @@ export  function Horizontal({post}) {
   
     {/* Text content */}
     
-      <p className="text-white absolute bottom-0  leading-relaxed w-full">
+      <p className="text-white text-sm bg-black/50 mx-2 mb-2 rounded-xl ">
         {post.excerpt.slice(0,100)}
       </p>
   </div>

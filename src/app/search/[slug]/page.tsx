@@ -53,7 +53,7 @@ export default function Page({ params }: { params: { slug: string } }) {
    }, []); // Fetch the first page on component mount
     return (
      <>
-        <div className="mx-32 hidden   mb-8 bg-white dark:bg-slate-950 md:grid grid-cols-1 gap-3 md:grid-cols-4">
+        <div className="lg:mx-32 hidden  md:mx-5  mb-8 bg-white dark:bg-slate-950 md:grid grid-cols-1 gap-3 md:grid-cols-4">
              {items.length ? items.map((post,index)=><BoxCard key={index} post={post} />):[1,2,3,4,5,6,7,8].map((p)=><Skeletel key={p} variant={"rectangular"} height={200}/>)}
         </div>
         <div className=" mb-8 bg-white dark:bg-slate-950 md:hidden flex-col">

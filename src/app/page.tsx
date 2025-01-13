@@ -24,7 +24,7 @@ export default function Home () {
   
   return (
     <>
-    <div className="md:mx-32 " >
+    <div className="lg:mx-32  md:mx-5" >
       <div className="grid grid-cols-1 md:grid-cols-12 gap-5  " >
            <div className="md:col-span-7 col-span-1  "> 
               {post?<NewsCard post={post}  />:<Skeletel  height={450} width={700} variant={"rectangular"} />} 

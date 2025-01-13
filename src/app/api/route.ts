@@ -1,7 +1,7 @@
 import { GraphQLClient, gql,} from 'graphql-request';
 
 
-const graphqlAPI = 'https://eu-west-2.cdn.hygraph.com/content/cm0z2o46n047d07w3d2g6zebi/master'
+const graphqlAPI = 'https://eu-west-2.cdn.hygraph.com/content/cm5qngpa4005o07w0le4bgik4/master'
 const GRAPHCMS_TOKEN   =process.env.GRAPHCMS_TOKEN
 
 

@@ -23,7 +23,7 @@ export default function Sport() {
       },[])
   return (
     <>
-         <div className=' hidden md:grid md:grid-cols-3 md:mx-32 gap-3'>
+         <div className=' hidden md:grid md:grid-cols-3 lg:mx-32 md:mx-5 gap-3'>
               <div>
                 {spost?<Vertical  post={spost}  />:<Skeletel variant={"rectangular"} height={500}  /> }
               </div>
