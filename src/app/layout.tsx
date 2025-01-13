@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Header } from "./Components";
+import Footer from "./Components/Footer";
 
 export const metadata: Metadata = {
   title: "ሳምንቱን በታሪክ",
@@ -17,6 +18,7 @@ export default function RootLayout({
       <body className="m-0 p-0  bg-white dark:bg-slate-950 scroll-container scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-200">
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );

@@ -40,7 +40,7 @@ export default function  NewsCard({post}){
       </div>
     </div>
     </Link>
-    <div className="flex justify-between">
+    <div className="grid md:grid-cols-2 grid-cols-1 gap-3">
     {spost&&spost.map((post)=>{
       return(
         <Link key={post.slug} href={`/post/${post.slug}`} >

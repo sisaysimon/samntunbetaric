@@ -12,7 +12,7 @@ export default function Postwidget({rposts}) {
       <h3 className="text-xl  font-semibold  w-fit  p-0 m-0"> {"የመረጥንላችሁ"} </h3>
       <hr className='h-2 w-10 rounded-full bg-red-700 mb-2' />
       </div>
-   
+    <div className=' w-full'>
     {rposts?rposts.map((post, index) => (
       <Link href={`/post/${post.slug}`}  key={index}>
       <div key={index} className="flex items-center w-full mb-4">
@@ -36,6 +36,7 @@ export default function Postwidget({rposts}) {
       </div>
       </Link>
     )):[1,2,3,4].map(p=><WidgetSkeletel key={p} />)}
+     </div>
   </div>
   )
 }
