@@ -1,4 +1,6 @@
+"use server"
 import { gql, request } from 'graphql-request'
+
 
 const graphqlAPI=process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT || "hellow"
 
@@ -238,3 +240,64 @@ export const getCategorypost = async (category:string) => {
     console.log(error); 
   }
 }
+// export const getSearch = async (value:string,last:number) => {
+//   const query = gql`
+//    query MyQuery {
+//   posts(where: {_search:"${value}"}, last: ${last}) {
+//     title
+//         excerpt
+//         slug
+//         featuredImage {
+//           url
+//         }
+//          category {
+//           name
+//           slug
+//         }
+//         createdAt
+//         slug
+//   }
+// }
+//   `
+//   try {
+//     // eslint-disable-next-line @typescript-eslint/no-explicit-any
+//     const results:any=await request(graphqlAPI,query,{value,last})
+//     return results.posts;
+//   } catch (error) {
+//     console.log(error); 
+//   }
+// }
+
+
+export const getSearch = async (value: string, first: number, skip: number) => {
+  const query = gql`
+    query MyQuery($value: String!, $first: Int!, $skip: Int!) {
+      posts(where: { _search: $value }, first: $first, skip: $skip) {
+        title
+        excerpt
+        slug
+        featuredImage {
+          url
+        }
+        category {
+          name
+          slug
+        }
+        createdAt
+      }
+    }
+  `;
+
+  try {
+     // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const results:any= await request(graphqlAPI, query, {
+      value,
+      first,
+      skip,
+    });
+    return results.posts;
+  } catch (error) {
+    console.error(error);
+    return [];
+  }
+};

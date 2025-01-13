@@ -11,7 +11,7 @@ type props={
 export default function Skeletel({variant,width,height}:props) {
   return (
     <Stack>
-      <Skeleton animation="wave"  variant={variant} width={width} height={height} />
+      <Skeleton animation="wave"  variant={variant} width={width} height={height} className='dark:bg-slate-950' />
     </Stack>
   );
 }
