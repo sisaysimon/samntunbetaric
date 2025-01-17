@@ -7,6 +7,8 @@ import Link from 'next/link';
 import Skeletel from './skele/Skeletel';
 import Skeleton from '@mui/material/Skeleton';
 import WidgetSkeletel from './skele/widget';
+import ReloadButton from './ReloadButton';
+
 
 
 type Props={
@@ -18,11 +20,15 @@ export default function Details({slug}:Props) {
     const [post,setPost]=useState<PostProps>();
     const [rpost,setRpost]=useState([])
     const  [sposts,setSposts]=useState([])
+    const [reload,setReload]=useState(false)
   useEffect(() => {
     const handler=async()=>{
       try {
-        await  getPostDetails(slug).then((posts) => {
-          setPost(posts) 
+      const posts=await  getPostDetails(slug)
+      if(posts.error) {
+       return setReload(true)
+      }else{
+        setPost(posts) 
         posts &&  getRecentPosts().then((rposts)=>{
           const fill =(value)=>{
             return value.slug !== posts.slug
@@ -33,9 +39,11 @@ export default function Details({slug}:Props) {
         posts &&  getSimilarPosts(posts.category,posts.slug,4).then((sposts)=>{
               setSposts(sposts)
         })
-        });
+      }
+      
       } catch (error) {
         console.log(error); 
+        return setReload(true)
       }
     }
    handler() 
@@ -43,6 +51,7 @@ export default function Details({slug}:Props) {
  
  
   return (
+    <>{reload?<ReloadButton />:(
     <>
        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5  text-black dark:text-white">
           <div className="col-span-1 lg:col-span-8">
@@ -106,5 +115,6 @@ export default function Details({slug}:Props) {
   <hr className='w-full h-2 my-2 border-none bg-slate-400 dark:bg-slate-700 rounded-2xl' />
   </div> 
     </>
+    )}</>
   )
 }

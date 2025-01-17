@@ -7,10 +7,12 @@ import Link from "next/link"
 import ThemeToggle from './Themetoggle';
 import moment from "moment-timezone";
 import logo from "../../public/logo.jpg"
+import { usePathname } from 'next/navigation'
 import { FaTwitter, FaFacebookF,FaYoutube ,FaInstagram , FaTelegramPlane,FaWhatsapp } from "react-icons/fa";
  const icon=[<FaTwitter  key={1} className='text-white'  />, <FaFacebookF  key={1}  className='text-white' />,<FaYoutube  key={1}  className='text-white' /> ,<FaInstagram   key={1}  className='text-white' />, <FaTelegramPlane  key={1}  className='text-white' />,<FaWhatsapp  key={1}  className='text-white' />]
 
 export default function Header() {
+  const pathname =decodeURIComponent(usePathname());
   const [currentTime, setCurrentTime] = useState("");
   const [openSearch,setOpensearch]=useState(false)
   const [searchValue,setSearchvalue]=useState("")
@@ -87,7 +89,7 @@ export default function Header() {
         </div>
         <div className=" flex gap-8 py-2 justify-center md:justify-end md:mx-32  text-black dark:text-white">
         {[{name:"ቀዳሚ ገፅ",path:"/"},{name:"ስፖርት",path:"/section/ስፖርት"},{name:"ፖለቲካ",path:"/section/ፖለቲካ"},{name:"ዜና",path:"/section/ዜና"}].map((category, index) => (
-            <Link key={index} href={`${category.path}`}><span className="text-2xl   font-semibold cursor-pointer">{category.name}</span></Link>
+            <Link key={index} href={`${category.path}`}  className={`${pathname === category.path &&'underline'}`}   ><span className="text-2xl   font-semibold cursor-pointer">{category.name}</span></Link>
           ))}
         </div>
         

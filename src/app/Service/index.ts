@@ -2,6 +2,7 @@
 import { gql, request } from 'graphql-request'
 
 
+
 const graphqlAPI=process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT || "hellow"
 
 export const Getpost=async()=>{
@@ -30,7 +31,8 @@ try {
   const results:any=await request(graphqlAPI,query,[{name:"ስፖርት",slug:"sport"}])
   return results.postsConnection.edges
 } catch (error) {
-  console.log(error); 
+  console.log(error);
+  return {error:true} 
 }
 
 }
@@ -62,7 +64,7 @@ export const getSimilarPosts = async (categories:[], slug:string,amount:number) 
      return result.posts;
   } catch (error) {
     console.log(error);
-    
+    return {error:true}
   }
  
 };
@@ -91,6 +93,7 @@ export const getSportPosts = async () => {
     return results.posts;
   } catch (error) {
     console.log(error); 
+    return {error:true}
   }
 }
 export const getRecentPosts = async () => {
@@ -117,7 +120,8 @@ export const getRecentPosts = async () => {
     const result:any = await request(graphqlAPI, query);
     return result.posts
   } catch (error) {
-    console.log(error);
+    console.log(error)
+    return {error:true}
   }
  
 };
@@ -146,6 +150,7 @@ export const getRecent = async ({slug}) => {
     return result.posts
   } catch (error) {
      console.log(error);
+     return {error:true}
      
   }
  
@@ -176,6 +181,7 @@ export const getNearRecentPosts = async (createdAt) => {
     return result.posts
   } catch (error) {
      console.log(error);
+     return {error:true}
      
   }
  
@@ -208,6 +214,7 @@ try {
   return results.post
 } catch (error) {
   console.log(error);
+  return {error:true}
   
 }
   
@@ -238,6 +245,7 @@ export const getCategorypost = async (category:string) => {
     return results.posts;
   } catch (error) {
     console.log(error); 
+    return {error:true}
   }
 }
 
@@ -270,6 +278,6 @@ export const getSearch = async (value: string, first: number, skip: number) => {
     return results.posts;
   } catch (error) {
     console.error(error);
-    return [];
+    return {error:true}
   }
 };

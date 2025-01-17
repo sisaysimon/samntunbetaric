@@ -36,7 +36,7 @@ export default function PostDetail({category,createdAt,title,featuredImage,conte
         <img src={featuredImage.url} alt="" className="object-top h-auto w-full object-cover  shadow-lg rounded-t-lg lg:rounded-lg" />
       </div>
       <div className="px-4 lg:px-0">
-        <div className="flex items-center mb-8 w-full">
+        <div className="flex items-center mb-2 w-full">
           <div className="hidden md:flex items-center justify-center lg:mb-0 lg:w-auto mr-8 ">
           </div>
         </div>

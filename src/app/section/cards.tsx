@@ -5,6 +5,7 @@ import { useEffect,useState } from "react";
 import Link from "next/link";
 import Skeletel from "../Components/skele/Skeletel";
 import { formatDistanceToNow } from 'date-fns';
+import ReloadButton from "../Components/ReloadButton";
 
 
 type props={
@@ -20,18 +21,26 @@ export default function  SectionCard({category}:props){
   const [post,setPost]=useState<PoseProps>()
   const [spost,setSpost]=useState([])
   const [wpost,setWpost]=useState([])
+  const [reload,setReload]=useState(false)
     useEffect(()=>{
      const Handler=async()=>{
+      try {
         const posts =await getCategorypost(category)
         console.log(posts);
         const pos =await posts && posts.shift()
            setPost(pos)
            setSpost(posts.slice(0,2))
-           return setWpost(posts.slice(2))   
+           return setWpost(posts.slice(2))  
+      } catch (error) {
+        console.log();
+        return setReload(true)
+      }
+        
      }
      Handler()
     },[category])
   return (
+    <>{reload?<ReloadButton />:(
     <>
     <div className="grid md:grid-cols-12 grid-cols-1 gap-5">
         {post?(
@@ -111,6 +120,7 @@ export default function  SectionCard({category}:props){
     )):[1,2,3,4].map(p=><Skeletel key={p} variant={"rectangular"} width={400} height={300} />)}
   </div>
     </>
+    )}</>
   );
 };
 
