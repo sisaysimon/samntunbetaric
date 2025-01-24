@@ -9,9 +9,9 @@ export default function Footer() {
   ];
 
   const socialLinks = [
-    { label: "Facebook", href: "https://facebook.com" },
-    { label: "Twitter", href: "https://twitter.com" },
-    { label: "Instagram", href: "https://instagram.com" },
+    { label: "Facebook", href: "/" },
+    { label: "Twitter", href: "/" },
+    { label: "Instagram", href: "/" },
   ];
 
   return (
@@ -46,8 +46,8 @@ export default function Footer() {
           <div>
             <h2 className="text-lg font-semibold mb-4">Contact</h2>
             <ul className="space-y-2">
-              <li>Email: info@samntunbetaric.com</li>
-              <li>Phone: +251-123-456-789</li>
+              <li>Email: sisaysimon94@gmail.com</li>
+              <li>Phone: +251-920-980-645</li>
               <li>Address: Addis Ababa, Ethiopia</li>
             </ul>
           </div>

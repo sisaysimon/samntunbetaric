@@ -94,7 +94,7 @@ export default function Details({slug}:Props) {
   
     {/* Text content */}
     
-      <p className=" leading-relaxed w-full">
+      <p className=" leading-relaxed w-full px-2 md:px-0">
         {spost.excerpt.slice(0,100)}
       </p>
   </div>

@@ -20,9 +20,9 @@ export default function PostDetail({category,createdAt,title,featuredImage,conte
   return (
     <>
     <div className="bg-white dark:bg-slate-950 text-black dark:text-white shadow-lg rounded-lg  md:pb-12 ">
-       <h1 className='w-fit px-5 py-2 bg-red-700 rounded-xl text-center justify-center '>{cata}</h1>
-       <h1 className="md:text-3xl text-lg font-semibold border-b-2 border-slate-300 pb-2 ">{title}</h1>
-       <div className="font-medium  flex w-full justify-between">
+       <h1 className='w-fit px-5 py-2 bg-red-700 rounded-xl text-center justify-center ml-2'>{cata}</h1>
+       <h1 className="md:text-3xl text-lg font-semibold border-b-2 border-slate-300 pb-2  px-2 ">{title}</h1>
+       <div className="font-medium  flex w-full justify-between px-2">
         <h1>{"ሳምንቱን በታሪክ"}</h1>
         <div className="font-medium  flex w-fit justify-end">
             <p>Published on:</p>
